@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Catálogo</title>
+  </head>
+  <body>
+    <h1>Catálogo con PostgreSQL y Django</h1>
+    <a href="{% url 'nuevoProducto' %}">Nuevo Producto</a>
+    <table border="1">
+      <tr>
+        <th>ID producto</th>
+        <th>Nombre Producto</th>
+        <th>Precio</th>
+        <th>Cantidad</th>
+        <th>Categoría</th>
+        <th>Descripción</th>
+        <th>Editar</th>
+        <th>Eliminar</th>
+      </tr>
+      {% for resultado in datos %}
+      <tr>
+        <td>{{resultado.id}}</td>
+        <td>{{resultado.nombre}}</td>
+        <td>{{resultado.precio}}</td>
+        <td>{{resultado.cantidad}}</td>
+        <td>{{resultado.categoria}}</td>
+        <td>{{resultado.descripcion}}</td>
+        <td><a href="modify/{{resultado.id}}">Editar</a></td>
+        <td>
+          <a
+            href="Delete/{{resultado.id}}"
+            onclick="return confirm('¿Está seguro de borrar este registro?'); document.URL='/'"
+            >Eliminar</a
+          >
+        </td>
+      </tr>
+      {% endfor %}
+    </table>
+  </body>
+</html>

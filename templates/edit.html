@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Modificar Producto</title>
+  </head>
+  <body>
+    <h1>Catálogo con PostgreSQL y Django</h1>
+    <form method="POST" action="/Update/{{Producto.id}}">
+      {% csrf_token %}
+      <table border="1">
+        <tr>
+          <td>Código Producto</td>
+          <td>
+            <input type="text" name="id" value="{{Producto.id}}" readonly />
+          </td>
+        </tr>
+        <tr>
+          <td>Nombre Producto</td>
+          <td>
+            <input type="text" name="nombre" value="{{Producto.nombre}}" />
+          </td>
+        </tr>
+        <tr>
+          <td>Precio Producto</td>
+          <td>
+            <input type="text" name="precio" value="{{Producto.precio}}" />
+          </td>
+        </tr>
+        <tr>
+          <td>Cantidad Producto</td>
+          <td>
+            <input type="text" name="cantidad" value="{{Producto.cantidad}}" />
+          </td>
+        </tr>
+        <tr>
+          <td>Categoría Producto</td>
+          <td>
+            <input
+              type="text"
+              name="categoria"
+              value="{{Producto.categoria}}"
+            />
+          </td>
+        </tr>
+        <tr>
+          <td>Descripción Producto</td>
+          <td>
+            <input
+              type="text"
+              name="descripcion"
+              value="{{Producto.descripcion}}"
+            />
+          </td>
+        </tr>
+        <tr>
+          <td><input type="submit" value="Actualizar Producto" /></td>
+          <td>
+            {% if messages %} {% for mess in messages %}
+            <b style="color: green">{{mess}}</b>
+            {% endfor %} {% endif %}
+          </td>
+        </tr>
+      </table>
+    </form>
+    <a href="{% url 'mostrarProductos' %}">Volver al Catálogo</a>
+  </body>
+</html>
