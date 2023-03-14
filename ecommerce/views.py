@@ -3,6 +3,8 @@ from ecommerce.models import Producto
 from django.contrib import messages
 from ecommerce.forms import ProductoForm
 from django.shortcuts import redirect
+from django.db.models import Count
+import pandas as pd
 
 
 def mostrarProductos(request):
@@ -41,3 +43,14 @@ def EliminarProducto(request, id):
     Eliminar.delete()
     return redirect('/')
 # https://source.unsplash.com/320x320/?television
+
+def chart_producto(request):
+    categoria = Producto.objects.values('categoria').annotate(cantidad=Count('categoria')).order_by()
+    df = pd.DataFrame(categoria)
+    df1 = df.cantidad.tolist()
+    df=df['categoria'].tolist()
+    mydict={
+        'df': df,
+        'df1': df1
+    }
+    return render(request, 'graphics.html', context=mydict)

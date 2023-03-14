@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gráficas</title>
+  </head>
+  <body>
+    <div>
+      <canvas id="myChart" width="700" height="500"> </canvas>
+    </div>
+  </body>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script type="text/javascript">
+    let usedColors = new Set();
+    let randomBackgroundColor = [];
+    const ctx = document.getElementById("myChart");
+    var df = {{df|safe}};
+    var df1 = {{df1|safe}};
+
+    let dynamicColors = function() {
+        let r = Math.floor(Math.random() * 255);
+        let g = Math.floor(Math.random() * 255);
+        let b = Math.floor(Math.random() * 255);
+        let color = "rgb(" + r + "," + g + "," + b + ")";
+
+        if (!usedColors.has(color)) {
+            usedColors.add(color);
+            return color;
+        } else {
+            return dynamicColors();
+        }
+    };
+
+    for (let i in df) {
+        randomBackgroundColor.push(dynamicColors());
+    }
+
+        new Chart(ctx, {
+          type: "polarArea",
+          data: {
+            labels: df,
+            datasets: [
+              {
+                data: df1,
+                backgroundColor: randomBackgroundColor,
+                label: "Cantidad de objetos en la categoría",
+                borderWidth: 1,
+              },
+
+            ],
+          },
+          options: {
+            maintainAspectRatio: false,
+            plugins: {
+                title: {
+                    display: true,
+                    text: 'Gráfica por categorías'
+                },
+                legend: {
+                  position: "top",
+                  align: "center"
+                }
+            },
+            // scales: {
+            //   y: {
+            //     beginAtZero: true
+            //   }
+            // }
+        }
+        });
+  </script>
+</html>
