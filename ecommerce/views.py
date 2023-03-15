@@ -11,6 +11,10 @@ def mostrarProductos(request):
     mostrarTodo = Producto.objects.all()
     return render(request, 'index.html', {"datos": mostrarTodo})
 
+def home(request):
+    mostrarTodo = Producto.objects.all()
+    return render(request, 'home.html', {"datos": mostrarTodo})
+
 def nuevoProducto(request):
     if request.method == 'POST':
         if (request.POST.get('nombre') and request.POST.get('precio') and request.POST.get('cantidad') and request.POST.get('categoria') and request.POST.get('descripcion')):
@@ -42,7 +46,7 @@ def EliminarProducto(request, id):
     Eliminar = Producto.objects.get(id=id)
     Eliminar.delete()
     return redirect('/')
-# https://source.unsplash.com/320x320/?television
+# https://source.unsplash.com/280x280/?television
 
 def chart_producto(request):
     categoria = Producto.objects.values('categoria').annotate(cantidad=Count('categoria')).order_by()

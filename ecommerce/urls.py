@@ -25,4 +25,5 @@ urlpatterns = [
     path('Update/<int:id>', views.actualizarProducto, name='actualizarProducto'),
     path('Delete/<int:id>', views.EliminarProducto, name='EliminarProducto'),
     path('charts', views.chart_producto, name='chart_producto'),
+    path('home', views.home, name='home'),
 ]

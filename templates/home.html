@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="../static/css/style.css" />
+    <title>Catálogo de productos - Django</title>
+  </head>
+  <body>
+    <div class="navbar">
+      <div class="logo">CRISTOPHER PAIZ</div>
+      <div class="links">
+        <a href="{% url 'home' %}" class="link">Inicio</a>
+        <a href="{% url 'mostrarProductos' %}" class="link">CRUD Productos</a>
+        <a href="{% url 'chart_producto' %}" class="link">Gráfica</a>
+      </div>
+    </div>
+    <div class="titulo">
+      <h1>Catálogo de productos</h1>
+    </div>
+    <div class="productos">
+      {% for resultado in datos %}
+
+      <div class="producto">
+        <div class="imagen">
+          <img
+            src="https://source.unsplash.com/280x280/?{{resultado.nombre}}"
+            alt=""
+            loading="lazy"
+          />
+        </div>
+        <div class="nombre">
+          <h2>{{resultado.nombre}}</h2>
+        </div>
+        <div class="primeraDes">
+          <div class="dis">
+            <p>Disponibilidad: {{resultado.cantidad}}</p>
+          </div>
+          <div class="precio">
+            <p>Precio: Q{{resultado.precio}}</p>
+          </div>
+        </div>
+        <div class="segundaDes">
+          <h2>Categoría: {{resultado.categoria}}</h2>
+          <p>{{resultado.descripcion}}</p>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </body>
+</html>

@@ -4,11 +4,13 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="../static/css/style.css" />
     <title>Catálogo</title>
   </head>
   <body>
     <h1>Catálogo con PostgreSQL y Django</h1>
     <a href="{% url 'nuevoProducto' %}">Nuevo Producto</a>
+    <a href="{% url 'chart_producto' %}">Gráficas</a>
     <table border="1">
       <tr>
         <th>ID producto</th>

@@ -1,0 +1,129 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100vw;
+  height: auto;
+  background-color: rgb(231, 231, 231);
+  position: fixed;
+  padding: 10px;
+  filter: drop-shadow(0px 5px 3px rgba(0, 0, 0, 0.5));
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 800;
+  padding: 5px;
+  color: dodgerblue;
+}
+.links {
+  display: flex;
+  gap: 5px;
+  padding-right: 25px;
+}
+
+.links .link {
+  text-decoration: none;
+  font-size: 1.2rem;
+  color: black;
+  padding: 10px 25px;
+  border-radius: 10px;
+}
+
+.links .link:hover {
+  transition: all 0.1s;
+  background-color: rgba(0, 0, 0, 0.2);
+  color: snow;
+}
+
+.titulo {
+  padding-top: 90px;
+  text-align: center;
+  color: dodgerblue;
+}
+
+.productos {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  max-width: 1300px;
+  width: 1300px;
+  gap: 15px;
+  padding: 20px 0px;
+}
+.producto {
+  background-color: rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  border-radius: 10px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 10px 5px;
+}
+
+.imagen {
+  width: 280px;
+  height: 280px;
+  object-fit: cover;
+  overflow: hidden;
+}
+
+.imagen img {
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.nombre {
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.nombre h2 {
+  font-size: 1.9rem;
+  color: rgb(0, 2, 145);
+}
+.primeraDes {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.dis {
+  font-size: 0.8rem;
+  padding-left: 10px;
+  font-weight: 600;
+}
+.precio {
+  font-size: 1.2rem;
+  padding-right: 10px;
+  font-weight: 600;
+  color: dodgerblue;
+}
+.segundaDes {
+  margin: 5px;
+}
+
+.segundaDes h2 {
+  font-size: 1.2rem;
+  width: 100%;
+  text-align: left;
+  color: rgb(85, 85, 85);
+}
+
+.segundaDes p {
+  width: 100%;
+  height: 35px;
+  overflow: hidden;
+  text-align: left;
+  color: rgb(112, 112, 112);
+}
