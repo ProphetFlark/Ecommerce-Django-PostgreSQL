@@ -8,9 +8,25 @@
     <title>Gráficas</title>
   </head>
   <body>
-    <a href="{% url 'mostrarProductos' %}">Volver al Catálogo</a>
-    <div>
-      <canvas id="myChart" width="700" height="500"> </canvas>
+    <div class="navbar">
+      <div class="logo">CRISTOPHER PAIZ</div>
+      <div class="links">
+        <a href="{% url 'mostrarProductos' %}" class="link">Inicio</a>
+        <a href="{% url 'home' %}" class="link">CRUD Productos</a>
+        <a href="{% url 'chart_producto' %}" class="link">Gráfica</a>
+      </div>
+    </div>
+    <div class="titulo">
+      <h1>Gráfica por categorías</h1>
+    </div>
+
+    <div class="graficas">
+      <div class="graf1">
+        <canvas id="myChart"> </canvas>
+      </div>
+      <div class="graf2">
+        <canvas id="myChart2"> </canvas>
+      </div>
     </div>
   </body>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -18,6 +34,7 @@
     let usedColors = new Set();
     let randomBackgroundColor = [];
     const ctx = document.getElementById("myChart");
+    const ctx2 = document.getElementById("myChart2");
     var df = {{df|safe}};
     var df1 = {{df1|safe}};
 
@@ -54,22 +71,52 @@
             ],
           },
           options: {
+            responsive: false,
             maintainAspectRatio: false,
             plugins: {
-                title: {
-                    display: true,
-                    text: 'Gráfica por categorías'
-                },
                 legend: {
                   position: "top",
-                  align: "center"
+                  align: "center",
+                  labels: {
+                    font: {
+                        size: 18,
+                        family: "Arial"
+                    }
+                  }
                 }
             },
-            // scales: {
-            //   y: {
-            //     beginAtZero: true
-            //   }
-            // }
+        }
+        });
+
+        new Chart(ctx2, {
+          type: "pie",
+          data: {
+            labels: df,
+            datasets: [
+              {
+                data: df1,
+                backgroundColor: randomBackgroundColor,
+                label: "Cantidad de objetos en la categoría",
+                borderWidth: 1,
+              },
+
+            ],
+          },
+          options: {
+            responsive: false,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                  position: "top",
+                  align: "center",
+                  labels: {
+                    font: {
+                        size: 18,
+                        family: "Arial"
+                    }
+                  }
+                }
+            },
         }
         });
   </script>

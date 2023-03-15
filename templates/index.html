@@ -5,41 +5,46 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" type="text/css" href="../static/css/style.css" />
-    <title>Catálogo</title>
+    <title>Catálogo de productos - Django</title>
   </head>
   <body>
-    <h1>Catálogo con PostgreSQL y Django</h1>
-    <a href="{% url 'nuevoProducto' %}">Nuevo Producto</a>
-    <a href="{% url 'chart_producto' %}">Gráficas</a>
-    <table border="1">
-      <tr>
-        <th>ID producto</th>
-        <th>Nombre Producto</th>
-        <th>Precio</th>
-        <th>Cantidad</th>
-        <th>Categoría</th>
-        <th>Descripción</th>
-        <th>Editar</th>
-        <th>Eliminar</th>
-      </tr>
+    <div class="navbar">
+      <div class="logo">CRISTOPHER PAIZ</div>
+      <div class="links">
+        <a href="{% url 'mostrarProductos' %}" class="link">Inicio</a>
+        <a href="{% url 'home' %}" class="link">CRUD Productos</a>
+        <a href="{% url 'chart_producto' %}" class="link">Gráfica</a>
+      </div>
+    </div>
+    <div class="titulo">
+      <h1>Catálogo de productos con PostgreSQL y Django</h1>
+    </div>
+    <div class="productos">
       {% for resultado in datos %}
-      <tr>
-        <td>{{resultado.id}}</td>
-        <td>{{resultado.nombre}}</td>
-        <td>{{resultado.precio}}</td>
-        <td>{{resultado.cantidad}}</td>
-        <td>{{resultado.categoria}}</td>
-        <td>{{resultado.descripcion}}</td>
-        <td><a href="modify/{{resultado.id}}">Editar</a></td>
-        <td>
-          <a
-            href="Delete/{{resultado.id}}"
-            onclick="return confirm('¿Está seguro de borrar este registro?'); document.URL='/'"
-            >Eliminar</a
-          >
-        </td>
-      </tr>
+
+      <div class="producto">
+        <div class="imagen">
+          <img
+            src="https://source.unsplash.com/280x280/?{{resultado.nombre}}"
+          />
+        </div>
+        <div class="nombre">
+          <h2>{{resultado.nombre}}</h2>
+        </div>
+        <div class="primeraDes">
+          <div class="dis">
+            <p>Disponibilidad: {{resultado.cantidad}}</p>
+          </div>
+          <div class="precio">
+            <p>Precio: Q{{resultado.precio}}.00</p>
+          </div>
+        </div>
+        <div class="segundaDes">
+          <h2>Categoría: {{resultado.categoria}}</h2>
+          <p>{{resultado.descripcion}}</p>
+        </div>
+      </div>
       {% endfor %}
-    </table>
+    </div>
   </body>
 </html>

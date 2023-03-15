@@ -8,7 +8,17 @@
     <title>Modificar Producto</title>
   </head>
   <body>
-    <h1>Catálogo con PostgreSQL y Django</h1>
+    <div class="navbar">
+      <div class="logo">CRISTOPHER PAIZ</div>
+      <div class="links">
+        <a href="{% url 'mostrarProductos' %}" class="link">Inicio</a>
+        <a href="{% url 'home' %}" class="link">CRUD Productos</a>
+        <a href="{% url 'chart_producto' %}" class="link">Gráfica</a>
+      </div>
+    </div>
+    <div class="titulo">
+      <h1>Catálogo con PostgreSQL y Django</h1>
+    </div>
     <form method="POST" action="/Update/{{Producto.id}}">
       {% csrf_token %}
       <table border="1">

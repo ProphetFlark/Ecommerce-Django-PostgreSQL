@@ -88,6 +88,7 @@
   white-space: nowrap;
 }
 .nombre h2 {
+  padding: 10px 0px;
   font-size: 1.9rem;
   color: rgb(0, 2, 145);
 }
@@ -126,4 +127,119 @@
   overflow: hidden;
   text-align: left;
   color: rgb(112, 112, 112);
+}
+
+.graficas {
+  padding-top: 50px;
+  display: flex;
+  flex-wrap: nowrap;
+  width: 100vw;
+  justify-content: center;
+  gap: 100px;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.graf1,
+.graf2 {
+  height: 400px;
+  width: 400px;
+}
+
+canvas {
+  display: flex;
+  width: 400px !important;
+  height: 400px !important;
+}
+
+.tabla {
+  border-collapse: collapse;
+  width: 1300px;
+  max-width: 1300px;
+  margin: 20px auto;
+  border: 1px solid #000;
+  padding: 60px 0px;
+}
+
+th {
+  background-color: dodgerblue;
+  padding: 10px;
+  margin: 0;
+  border: none;
+  stroke: none;
+  font-size: 1.3rem;
+}
+
+.thpeq {
+  width: 50px;
+}
+.thmed {
+  width: 100px;
+}
+
+.thmed2 {
+  width: 180px;
+}
+td {
+  padding: 10px 0px;
+  text-align: center;
+  align-items: center;
+}
+.tddescription {
+  padding-left: 10px;
+  text-align: left;
+}
+
+table tr:nth-child(odd) td {
+  background-color: rgb(205, 230, 255);
+}
+
+table tr:nth-child(even) td {
+  background-color: snow;
+}
+.tdlink a,
+.tdlinkr a {
+  text-decoration: none;
+}
+
+.tdlink a {
+  color: dodgerblue;
+  font-weight: 600;
+}
+
+.tdlinkr a {
+  color: red;
+  font-weight: 600;
+}
+
+.tdlink:hover {
+  background-color: rgb(176, 215, 255);
+}
+.tdlinkr:hover {
+  background-color: rgb(255, 148, 148);
+}
+
+.nuevo {
+  text-decoration: none;
+}
+
+.dboton {
+  width: 97vw;
+  justify-content: flex-end;
+  text-align: right;
+}
+
+.nuevo {
+  padding: 10px 40px;
+  font-weight: 700;
+  border-radius: 100vmax;
+  background-color: snow;
+  border: 1px solid #000;
+  color: dodgerblue;
+}
+.nuevo:hover {
+  border-radius: 100vmax;
+  background-color: dodgerblue;
+  color: snow;
+  transition: 0.1s ease-in-out;
 }
