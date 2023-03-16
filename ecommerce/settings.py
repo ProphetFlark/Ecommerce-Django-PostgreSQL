@@ -38,11 +38,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'whitenoise.runserver_nostatic',
     'ecommerce'
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -130,29 +132,9 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
-STATIC_ROOT = ''
-
 STATIC_URL = '/static/'
-
-STATICFILES_DIRS = ('static',)
-
-# Url at which static files are served
-# It's the url the browser will fetch to get the static files
-# It's prepend to static name by the {% static %} templatetag
-STATIC_URL = "static/"
-
-# Directory where static files can be found
-# When DEBUG = True, static files will be directly served from there by 
-# the manage.py runserver command
-STATICFILES_DIRS = [BASE_DIR / "static"]
-
-# Directory to export staticfiles for production
-# All files from all STATICFILES_DIRS will be copied by 
-# manage.py collectstatic to this directory.
-# /!\ It will not be served by django, you have to setup 
-# your webserver (or use a third party module) 
-# to serve assets from there.
-STATIC_ROOT = BASE_DIR / "assets"
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATICFILES_STORAGE="whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
