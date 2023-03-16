@@ -53,7 +53,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-CSRF_TRUSTED_ORIGINS = ['https://.127.0.0.1', 'https://ecommerce-crp-django.up.railway.app/', 'https://.up.railway.app/']
+CSRF_TRUSTED_ORIGINS = ['https://.127.0.0.1', 'https://railway.app/', 'https://.up.railway.app/']
 
 ROOT_URLCONF = 'ecommerce.urls'
 
