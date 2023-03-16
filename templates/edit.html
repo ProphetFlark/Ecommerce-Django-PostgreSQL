@@ -17,65 +17,64 @@
       </div>
     </div>
     <div class="titulo">
-      <h1>Catálogo con PostgreSQL y Django</h1>
+      <h1>Actualizar producto</h1>
     </div>
     <form method="POST" action="/Update/{{Producto.id}}">
       {% csrf_token %}
-      <table border="1">
-        <tr>
-          <td>Código Producto</td>
-          <td>
-            <input type="text" name="id" value="{{Producto.id}}" readonly />
-          </td>
-        </tr>
-        <tr>
-          <td>Nombre Producto</td>
-          <td>
-            <input type="text" name="nombre" value="{{Producto.nombre}}" />
-          </td>
-        </tr>
-        <tr>
-          <td>Precio Producto</td>
-          <td>
-            <input type="text" name="precio" value="{{Producto.precio}}" />
-          </td>
-        </tr>
-        <tr>
-          <td>Cantidad Producto</td>
-          <td>
-            <input type="text" name="cantidad" value="{{Producto.cantidad}}" />
-          </td>
-        </tr>
-        <tr>
-          <td>Categoría Producto</td>
-          <td>
-            <input
-              type="text"
-              name="categoria"
-              value="{{Producto.categoria}}"
-            />
-          </td>
-        </tr>
-        <tr>
-          <td>Descripción Producto</td>
-          <td>
-            <input
-              type="text"
-              name="descripcion"
-              value="{{Producto.descripcion}}"
-            />
-          </td>
-        </tr>
-        <tr>
-          <td><input type="submit" value="Actualizar Producto" /></td>
-          <td>
-            {% if messages %} {% for mess in messages %}
-            <b style="color: green">{{mess}}</b>
-            {% endfor %} {% endif %}
-          </td>
-        </tr>
-      </table>
+      <div class="formulario" autocomplete="off">
+        <h3 class="formname">Nombre producto</h3>
+        <input
+          type="text"
+          placeholder="Ingrese nombre del producto"
+          name="nombre"
+          value="{{ Producto.nombre }}"
+          required
+        />
+        <div class="subdiv">
+          <h3 class="formname1">Precio producto</h3>
+          <input
+            type="text"
+            placeholder="Ej. 100"
+            name="precio"
+            value="{{ Producto.precio }}"
+            pattern="[0-9]+"
+            required
+            class="input-small"
+          />
+          <h3 class="formname1">Cantidad del producto</h3>
+          <input
+            type="text"
+            placeholder="Ej. 15"
+            name="cantidad"
+            value="{{ Producto.cantidad }}"
+            pattern="[0-9]+"
+            required
+            class="input-small"
+          />
+        </div>
+        <h3 class="formname">Categoría del producto</h3>
+        <input
+          type="text"
+          placeholder="Ingrese la categoría del producto"
+          name="categoria"
+          value="{{ Producto.categoria }}"
+          required
+        />
+        <h3 class="formname">Descripción del producto</h3>
+        <input
+          type="text"
+          placeholder="Ingrese una descripcion del producto"
+          name="descripcion"
+          value="{{ Producto.descripcion }}"
+          required
+        />
+        <input type="submit" value="Actualizar" />
+      </div>
+      <div class="mensaje">
+        {% if messages %} {% for mess in messages %}
+        <b>{{mess}}</b>
+        {% endfor %} {% endif %}
+      </div>
     </form>
-    <a href="{% url 'mostrarProductos' %}">Volver al Catálogo</a>
   </body>
 </html>

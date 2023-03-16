@@ -43,7 +43,7 @@
 }
 
 .titulo {
-  padding-top: 90px;
+  padding-top: 80px;
   text-align: center;
   color: dodgerblue;
 }
@@ -242,4 +242,83 @@ table tr:nth-child(even) td {
   background-color: dodgerblue;
   color: snow;
   transition: 0.1s ease-in-out;
+}
+.formulario {
+  display: flex;
+  flex-direction: column;
+  width: 900px;
+  margin: 10px auto;
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+  padding: 6px 0px;
+}
+
+.formname {
+  text-align: center;
+  padding: 5px 0px;
+}
+
+.formulario input[type="text"] {
+  margin: 5px auto;
+  width: 700px;
+  max-width: 700px;
+  padding: 20px 30px;
+  border: none;
+  border-radius: 100vmax;
+  text-align: center;
+  color: dodgerblue;
+}
+
+.formulario input[type="submit"] {
+  width: 700px;
+  max-width: 700px;
+  padding: 15px 0px;
+  margin: 15px auto;
+  font-size: 1.3rem;
+  font-weight: 900;
+  border-radius: 100vmax;
+  border: 1px solid #000;
+}
+.formulario input[type="submit"]:hover {
+  width: 700px;
+  max-width: 700px;
+  padding: 15px 0px;
+  margin: 15px auto;
+  cursor: pointer;
+  background-color: dodgerblue;
+  color: white;
+  transition: all 0.2s;
+}
+
+.subdiv {
+  margin: 0 auto;
+  width: 700px;
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.formname1 {
+  text-align: center;
+  white-space: nowrap;
+}
+
+.formulario .subdiv .input-small {
+  margin: 5px auto;
+  width: 50%;
+  max-width: 80%;
+  padding: 20px 30px;
+  border: none;
+  border-radius: 100vmax;
+  text-align: center;
+  color: dodgerblue;
+}
+
+.mensaje {
+  color: green;
+  width: 100%;
+  text-align: center;
+  margin: 0 auto;
 }

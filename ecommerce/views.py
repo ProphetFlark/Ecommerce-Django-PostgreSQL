@@ -45,7 +45,7 @@ def actualizarProducto(request, id):
 def EliminarProducto(request, id):
     Eliminar = Producto.objects.get(id=id)
     Eliminar.delete()
-    return redirect('/')
+    return redirect('/home')
 # https://source.unsplash.com/280x280/?television
 
 def chart_producto(request):

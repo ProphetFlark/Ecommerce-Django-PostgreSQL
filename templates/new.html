@@ -8,72 +8,71 @@
     <title>Nuevo Producto</title>
   </head>
   <body>
-    <h1>Agregar nuevo producto</h1>
+    <div class="navbar">
+      <div class="logo">CRISTOPHER PAIZ</div>
+      <div class="links">
+        <a href="{% url 'mostrarProductos' %}" class="link">Inicio</a>
+        <a href="{% url 'home' %}" class="link">CRUD Productos</a>
+        <a href="{% url 'chart_producto' %}" class="link">Gráfica</a>
+      </div>
+    </div>
+    <div class="titulo">
+      <h1>Agregar nuevo producto</h1>
+    </div>
     <form method="POST">
       {% csrf_token %}
-      <table border="1">
-        <tr>
-          <td>Nombre Producto</td>
-          <td>
-            <input
-              type="text"
-              placeholder="Ingrese nombre del producto"
-              name="nombre"
-            />
-          </td>
-        </tr>
-        <tr>
-          <td>Precio Producto</td>
-          <td>
-            <input
-              type="text"
-              placeholder="Ingrese el precio del producto"
-              name="precio"
-            />
-          </td>
-        </tr>
-        <tr>
-          <td>Cantidad del producto</td>
-          <td>
-            <input
-              type="text"
-              placeholder="Ingrese la cantidad producto"
-              name="cantidad"
-            />
-          </td>
-        </tr>
-        <tr>
-          <td>Categoria del Producto</td>
-          <td>
-            <input
-              type="text"
-              placeholder="Ingrese la categoría del producto"
-              name="categoria"
-            />
-          </td>
-        </tr>
-        <tr>
-          <td>Descripción del producto</td>
-          <td>
-            <input
-              type="text"
-              placeholder="Ingrese una descripcion del producto"
-              name="descripcion"
-            />
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <input type="submit" value="Añadir nuevo producto" />
-          </td>
-          <td>
-            {% if messages %} {% for mess in messages %}
-            <b style="color: green">{{mess}}</b>
-            {% endfor %} {% endif %}
-          </td>
-        </tr>
-      </table>
-      <a href="{% url 'mostrarProductos' %}">Volver al Catálogo</a>
+      <div class="formulario" autocomplete="off">
+        <h3 class="formname">Nombre producto</h3>
+        <input
+          type="text"
+          placeholder="Ingrese nombre del producto"
+          name="nombre"
+          required
+        />
+        <div class="subdiv">
+          <h3 class="formname1">Precio producto</h3>
+          <input
+            type="text"
+            placeholder="Ej. 100"
+            name="precio"
+            pattern="[0-9]+"
+            required
+            class="input-small"
+          />
+          <h3 class="formname1">Cantidad del producto</h3>
+          <input
+            type="text"
+            placeholder="Ej. 15"
+            name="cantidad"
+            pattern="[0-9]+"
+            required
+            class="input-small"
+          />
+        </div>
+        <h3 class="formname">Categoría del producto</h3>
+        <input
+          type="text"
+          placeholder="Ingrese la categoría del producto"
+          name="categoria"
+          required
+        />
+        <h3 class="formname">Descripción del producto</h3>
+        <input
+          type="text"
+          placeholder="Ingrese una descripcion del producto"
+          name="descripcion"
+          required
+        />
+        <input type="submit" value="Añadir nuevo producto" />
+      </div>
+      <div class="mensaje">
+        {% if messages %} {% for mess in messages %}
+        <b style="color: green; margin: 0 auto; text-align: center; width: 100%"
+          >{{mess}}</b
+        >
+        {% endfor %} {% endif %}
+      </div>
     </form>
+    <a href="{% url 'home' %}">Volver al Catálogo</a>
   </body>
 </html>
