@@ -136,8 +136,23 @@ STATIC_URL = '/static/'
 
 STATICFILES_DIRS = ('static',)
 
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
-STATIC_ROOT =os.path.join(BASE_DIR, 'staticfiles')
+# Url at which static files are served
+# It's the url the browser will fetch to get the static files
+# It's prepend to static name by the {% static %} templatetag
+STATIC_URL = "static/"
+
+# Directory where static files can be found
+# When DEBUG = True, static files will be directly served from there by 
+# the manage.py runserver command
+STATICFILES_DIRS = [BASE_DIR / "static"]
+
+# Directory to export staticfiles for production
+# All files from all STATICFILES_DIRS will be copied by 
+# manage.py collectstatic to this directory.
+# /!\ It will not be served by django, you have to setup 
+# your webserver (or use a third party module) 
+# to serve assets from there.
+STATIC_ROOT = BASE_DIR / "assets"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
