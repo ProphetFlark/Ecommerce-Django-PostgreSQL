@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'whitenoise.runserver_nostatic',
+    'corsheaders',
     'ecommerce'
 ]
 
@@ -51,9 +52,10 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
 
-CSRF_TRUSTED_ORIGINS = ['https://.127.0.0.1', 'https://railway.app/', 'https://.up.railway.app/']
+CSRF_TRUSTED_ORIGINS = ['https://railway.app/', 'https://ecommerce-crp-django.up.railway.app/', 'https://*.railway.app/']
 
 ROOT_URLCONF = 'ecommerce.urls'
 
