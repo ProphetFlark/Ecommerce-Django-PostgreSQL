@@ -77,12 +77,21 @@ WSGI_APPLICATION = 'ecommerce.wsgi.application'
 
 DATABASES = {
     'default': {
+        # PARA LOCAL
+        # 'ENGINE': 'django.db.backends.postgresql',
+        # 'NAME': 'ecommercedb',
+        # 'USER': 'postgres',
+        # 'PASSWORD': 'manager',
+        # 'HOST': 'localhost',
+        # 'PORT': '5432',
+
+        #PARA WEB
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'ecommercedb',
+        'NAME': 'railway',
         'USER': 'postgres',
-        'PASSWORD': 'manager',
-        'HOST': 'localhost',
-        'PORT': '5432',
+        'PASSWORD': '5VM8evsm9YuLGlu2Yerp',
+        'HOST': 'containers-us-west-122.railway.app',
+        'PORT': '5513',
     }
 }
 
