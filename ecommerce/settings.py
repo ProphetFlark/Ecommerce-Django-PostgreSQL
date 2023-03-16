@@ -53,6 +53,8 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+CSRF_TRUSTED_ORIGINS = ['https://.127.0.0.1', 'https://ecommerce-crp-django.up.railway.app/', 'https://.up.railway.app/']
+
 ROOT_URLCONF = 'ecommerce.urls'
 
 TEMPLATES = [
@@ -127,8 +129,6 @@ TIME_ZONE = 'UTC'
 USE_I18N = True
 
 USE_TZ = True
-
-CSRF_TRUSTED_ORIGINS = ['https://.127.0.0.1', 'https://ecommerce-crp-django.up.railway.app/']
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
